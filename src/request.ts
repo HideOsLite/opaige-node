@@ -26,7 +26,7 @@ export class OpaigeError extends Error {
   }
 }
 
-export const VERSION = '1.0.0';
+export const VERSION = '1.0.1';
 const RETRY = new Set([429, 500, 502, 503, 504]);
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 

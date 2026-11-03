@@ -1,6 +1,6 @@
 {
   "name": "@opaige/node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The Opaige API for Node: visa requirements, file review, forms, bookings, lodgements and webhooks.",
   "license": "MIT",
   "type": "module",
@@ -26,5 +26,12 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HideOsLite/opaige-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HideOsLite/opaige-node/issues"
   }
 }
