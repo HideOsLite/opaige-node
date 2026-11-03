@@ -1,0 +1,30 @@
+{
+  "name": "@opaige/node",
+  "version": "1.0.0",
+  "description": "The Opaige API for Node: visa requirements, file review, forms, bookings, lodgements and webhooks.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build"
+  },
+  "homepage": "https://opaige.com/developers",
+  "sideEffects": false,
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/node": "^20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
