@@ -22,7 +22,7 @@ named in camelCase; JSON goes in `body`; a PDF comes back as a `Uint8Array`.
 
 **Errors** throw `OpaigeError` with `status`, `code`, `requestId` (quote it to support) and `details`.
 **Retries:** reads, and writes sent with an `idempotencyKey`, are tried again after 429 and 5xx answers (`maxRetries`, default 2).
-**Sandbox:** a sandbox key answers in the same shape and saves and bills nothing.
+**Sandbox:** a sandbox key answers in the same shape, is never billed and never touches live data. Bookings, students and appointments it sends are kept as test data.
 
 ## Webhooks
 

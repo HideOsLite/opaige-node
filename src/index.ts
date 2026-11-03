@@ -9,7 +9,7 @@ import { Requester, type ClientOptions } from './request.js';
  *   const answer = await opaige.checkRequirements({ passport: 'IN', destination: 'FR' });
  *   await opaige.sendBookings({ body: { bookings: [...] } });
  *
- * A sandbox key answers in the same shape and saves and bills nothing.
+ * A sandbox key answers in the same shape, is never billed and never touches live data.
  */
 export class Opaige extends Operations {
   constructor(key: string, options: ClientOptions = {}) {

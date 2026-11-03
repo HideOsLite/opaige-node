@@ -32,6 +32,16 @@ export class Operations {
     return this.http.request("GET", `/bookings/${encodeURIComponent(params.ref)}`, { query: undefined });
   }
 
+  /** Where the Canada forms stand on a case, and the forms filed, each with a 10-minute link. `GET /cases/{id}/canada-forms` */
+  getCanadaForms(params: { id: string }): Promise<any> {
+    return this.http.request("GET", `/cases/${encodeURIComponent(params.id)}/canada-forms`, { query: undefined });
+  }
+
+  /** Queue Canada’s IMM 5257 and IMM 5707 on a case: filled from the case, validated and read back. `POST /cases/{id}/canada-forms` */
+  requestCanadaForms(params: { id: string }): Promise<any> {
+    return this.http.request("POST", `/cases/${encodeURIComponent(params.id)}/canada-forms`, { query: undefined });
+  }
+
   /** A case’s finished file, with fresh links. `GET /cases/{id}/file` */
   getCaseFile(params: { id: string }): Promise<any> {
     return this.http.request("GET", `/cases/${encodeURIComponent(params.id)}/file`, { query: undefined });
@@ -82,7 +92,7 @@ export class Operations {
     return this.http.request("GET", `/lodgements`, { query: undefined });
   }
 
-  /** Fill a visa application on the government portal, parked before the declarations (au-600) or the photo and signature (us-ds160). `POST /lodgements` */
+  /** Fill a visa application on the government portal, parked before the declarations (au-600, au-500) or the photo and signature (us-ds160). `POST /lodgements` */
   createLodgement(params: { body: Json; idempotencyKey?: string }): Promise<any> {
     return this.http.request("POST", `/lodgements`, { query: undefined, body: params.body, idempotencyKey: params.idempotencyKey });
   }
@@ -172,7 +182,7 @@ export class Operations {
     return this.http.request("GET", `/students/compliance`, { query: { "as_of": params.asOf } });
   }
 
-  /** Pre-CAS: a UK Student’s money against the Immigration Rules, each finding with its paragraph. `POST /students/funds-check` */
+  /** A student’s money against the study country’s rules (GB, CA, AU, US), each finding with its source. `POST /students/funds-check` */
   studentFundsCheck(params: { body: Json }): Promise<any> {
     return this.http.request("POST", `/students/funds-check`, { query: undefined, body: params.body });
   }
